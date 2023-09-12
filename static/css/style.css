@@ -1,0 +1,49 @@
+:root {
+    --primary-color: #D1E0EE;
+    --secondary-color: #516D98;
+    --dark-color: #001C47;
+    --text-color: #212121;
+    --bg-color: #FFF;
+    --default-font: 'Nunito', 'sans-serif';
+}
+
+/*=== Header ===*/
+header {
+    background-color: var(--primary-color);
+}
+
+
+header .container {
+    height: 6rem;
+    box-shadow: 0 3px 4px #2932414d;
+}
+
+header .container .nav-items a {
+    color: var(--dark-color);
+}
+
+/*=== Body ===*/
+body {
+    background-color: var(--bg-color);
+    font-family: var(--default-font);
+}
+
+.nav-items a:hover p::after {
+    transform-origin: left center;
+    transform: scaleX(1);
+}
+
+.nav-items a p::after {
+    transform: scaleX(0);
+    content: '';
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    bottom: -4px;
+    left: 1px;
+    background-color: var(--dark-color);
+    transform-origin: right center;
+    transition: transform cubic-bezier(0.62, 0.05, 0.01, 0.98) 1s;
+    border-bottom: none;
+    cursor: pointer;
+}
