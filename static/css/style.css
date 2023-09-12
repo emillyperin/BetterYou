@@ -10,12 +10,12 @@
 /*=== Header ===*/
 header {
     background-color: var(--primary-color);
+    box-shadow: 0 3px 4px #2932414d;
 }
 
 
 header .container {
     height: 6rem;
-    box-shadow: 0 3px 4px #2932414d;
 }
 
 header .container .nav-items a {
