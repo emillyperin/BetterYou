@@ -1,0 +1,37 @@
+.d-flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.page-main {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1280px;
+    padding-left: 40px;
+    padding-right: 50px;
+    width: auto;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.pe-6 {
+    padding-right: 6vw;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.p-relative {
+    position: relative;
+}
