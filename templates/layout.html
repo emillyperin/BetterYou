@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="static/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/default.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <header>
+        <div class="container page-main d-flex align-center justify-between ">
+            <div class="logo">
+                <a href="{{ url_for('home') }}">
+                    <img src="static/images/logo.svg" alt="Logo Better You">
+                </a>
+            </div>
+            <div class="nav-items ">
+                <nav class="d-flex justify-between bold">
+                    <a class="pe-6" href="">
+                        <p class="p-relative">Sobre</p>
+                    </a>
+                    <a class="pe-6" href="">
+                        <p class="p-relative">Como usar</p>
+                    </a>
+                    <a href="">
+                        <p class="p-relative">Modelos (em breve)</p>
+                    </a>
+                </nav>
+            </div>
+            <div class="account">
+                <a href="">
+                    <img src="static/images/conta.svg" alt="">
+                </a>
+            </div>
+        </div>
+    </header>
+    {% if "add" not in request.endpoint %}
+        <a href="{{ url_for('add_habit') }}" class="add_link">+ Adicionar novo Hábito </a>
+    {% endif %}
+
+    <main clas="main">
+        {% block main_content %}
+        {% endblock %}        
+    </main>
+
+</body>
+</html>

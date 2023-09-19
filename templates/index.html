@@ -1,48 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "layout.html" %}
 
-    <link rel="icon" href="static/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="static/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="static/css/style.css">
-    <link rel="stylesheet" type="text/css" href="static/css/default.css">
+{% block main_content %}
 
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <title>Better You</title>
-</head>
-<body>
-    <header>
-        <div class="container page-main d-flex align-center justify-between ">
-            <div class="logo">
-                <a href="/">
-                    <img src="static/images/logo.svg" alt="Logo Better You">
-                </a>
-            </div>
-            <div class="nav-items ">
-                <nav class="d-flex justify-between bold">
-                    <a class="pe-6" href="">
-                        <p class="p-relative">Sobre</p>
-                    </a>
-                    <a class="pe-6" href="">
-                        <p class="p-relative">Como usar</p>
-                    </a>
-                    <a href="">
-                        <p class="p-relative">Modelos (em breve)</p>
-                    </a>
-                </nav>
-            </div>
-            <div class="account">
-                <a href="">
-                    <img src="static/images/conta.svg" alt="">
-                </a>
-            </div>
-        </div>
-    </header>
-    <main>
-        
-    </main>
+    <section class="habit-list">
+        {% for habit in habits %}
+            <div class="habit">
+                <p class="habit__name">
+                    {{ habit }}
+                </p>
+            </div>        
+        {% endfor %}
+    </section>
 
-</body>
-</html>
+
+{% endblock %}
