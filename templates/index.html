@@ -1,16 +1,19 @@
-{% extends "layout.html" %}
+{% extends 'layout.html' %}
 
 {% block main_content %}
-
+    
     <section class="habit-list">
-        {% for habit in habits %}
-            <div class="habit">
-                <p class="habit__name">
-                    {{ habit }}
+        {% for i in habit %}      
+            <div class="habit_completed">
+                <p class="habit__description">
+                    {% if i.date_created>=selected_date %}
+                        {{ "" }}
+                    {% else %}
+                        {{ i.description }}
+                    {% endif %}
                 </p>
-            </div>        
+            </div>     
         {% endfor %}
     </section>
-
-
+    
 {% endblock %}
