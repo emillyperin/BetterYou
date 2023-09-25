@@ -3,7 +3,7 @@ import datetime
 from flask import Flask, redirect, render_template, request, url_for
 from flask_sqlalchemy import SQLAlchemy
 
-app = Flask("Better You")
+app = Flask("Better You",template_folder="templates")   # *****Revisa isso aqui*****
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///habits.db"
 
