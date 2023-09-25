@@ -3,6 +3,7 @@
     --secondary-color: #516D98;
     --dark-color: #001C47;
     --text-color: #212121;
+    --soft-gray: #c5c5c5;
     --bg-color: #FFF;
     --default-font: 'Nunito', 'sans-serif';
 }
@@ -20,12 +21,6 @@ header .container {
 
 header .container .nav-items a {
     color: var(--dark-color);
-}
-
-/*=== Body ===*/
-body {
-    background-color: var(--bg-color);
-    font-family: var(--default-font);
 }
 
 .nav-items a:hover p::after {
@@ -47,3 +42,83 @@ body {
     border-bottom: none;
     cursor: pointer;
 }
+
+/*=== Body ===*/
+body {
+    background-color: var(--bg-color);
+    font-family: var(--default-font);
+}
+
+/*=== Habits ===*/
+.new-habit a {
+    font: bold 14px var(--default-font);
+    text-transform: uppercase;
+    color: var(--secondary-color);
+    transition: .25s;
+}
+
+.new-habit a:hover {
+    color: var(--dark-color);
+}
+
+.border-custom {
+    border: 1px solid var(--secondary-color);
+    border-radius: 4px;
+}
+
+.border-custom>div {
+    padding: 30px;
+}
+
+.habit-list p {
+    color: var(--text-color);
+}
+
+.habit-list .habit_completed {
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 1px 3px 0px var(--soft-gray);
+    border-radius: 4px;
+    transition: .25s;
+}
+
+.habit-list .habit_completed:hover {
+    transform: scale(1.04);
+}
+
+form.form{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.form_input {
+    border: none;
+    width: 70%;
+    height: 23px;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.form_input:focus-visible {
+    outline: none;
+}
+
+.form_button {
+    font: bold 14px var(--default-font);
+    padding: 7px 23px;
+    border: none;
+    background: var(--secondary-color);
+    color: var(--bg-color);
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form_button:hover {
+    opacity: 0.8;
+}
+
+/*=== Calendar ===*/
