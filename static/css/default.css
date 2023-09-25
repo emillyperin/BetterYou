@@ -35,3 +35,11 @@
 .p-relative {
     position: relative;
 }
+
+.w-50 {
+    width: 47%;
+}
+
+.margin {
+    margin: 3rem auto;
+}

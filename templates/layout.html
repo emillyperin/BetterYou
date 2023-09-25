@@ -40,23 +40,38 @@
             </div>
         </div>
     </header>
-    {% if "add" not in request.endpoint %}
-        <a href="{{ url_for('add_habit') }}" class="add_link">+ Adicionar novo Hábito </a>
-    {% endif %}
-
+    
     <main class="main">
-        <section class="dates">
-            {% for date in date_range(selected_date) %}
-                <a class="dates__link {{ 'dates__link--current' if loop.index0 == 3 else '' }}" href="{{ url_for('index', date=date)}}">
-                    <time class="date" datetime="{{ date }}">
-                        <span>{{ date.strftime("%a") }}</span>
-                        <span>{{ date.strftime("%d") }}</span>
-                    </time>
-                </a>
-            {% endfor %}
-        </section>
-        {% block main_content %}
-        {% endblock %}
+        <div class="page-main margin">
+            <div class="new-habit">
+                {% if "add" not in request.endpoint %}
+                    <a href="{{ url_for('add_habit') }}" class="add_link">+ Adicionar novo Hábito </a>
+                {% endif %}
+            </div>
+            <div class="d-flex margin justify-between">
+                <section class="w-50 border-custom">
+                    <div>
+                        {% block main_content %}
+                        {% endblock %}
+                    </div>
+                </section>
+                <section class="w-50 border-custom">
+                    <div>
+                        <div class="dates">
+                            {% for date in date_range(selected_date) %}
+                                <a class="dates__link {{ 'dates__link--current' if loop.index0 == 3 else '' }}" href="{{ url_for('index', date=date)}}">
+                                    <time class="date" datetime="{{ date }}">
+                                        <span>{{ date.strftime("%a") }}</span>
+                                        <span>{{ date.strftime("%d") }}</span>
+                                    </time>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </section>
+                
+            </div>
+        </div>
     </main>
 
 </body>
