@@ -1,7 +1,11 @@
+<!-- Simplesmente copia e renderiza o conteúdo de layout.html -->
 {% extends 'layout.html' %}
 
+
+<!-- Subsitui o block main_content que está no layout.html -->
 {% block main_content %}
 
+    <!-- Markup da funcionalidade de adiconar hábito utilizando textarea -->
     <form class="form" method="POST">
         <textarea class="form_input" name="input_description" id="input_description" rows="3" placeholder="Escreva seu novo hábito diário."></textarea>
         <button class="form_button" type="submit">Adicionar</button>

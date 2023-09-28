@@ -1,19 +1,46 @@
+
+<!-- Simplesmente copia e renderiza o conteúdo de layout.html -->
 {% extends 'layout.html' %}
 
+<!-- Subsitui o block main_content que está no layout.html -->
 {% block main_content %}
     
-    <div class="habit-list">
-        {% for i in habit %}      
-            <div class="habit_completed pointer">
+<div class="task-list">
+    {% for i in habit %} 
+        <!-- Verifica se a task não está completa e se a data de criação é igual a selected_date -->
+        {% if not i.completions and (i.date_created.date() == selected_date.date()) %}
+            <!-- Renderiza botão pra clicar -->
+            <div class="task_incompleted ">
                 <p class="habit__description">
-                    {% if i.date_created>=selected_date %}
-                        {{ "" }}
-                    {% else %}
-                        {{ i.description }}
-                    {% endif %}
+                    <form method="POST" class="task__form" action="{{ url_for('complete') }}">
+                        <input type="hidden" name="habitId" value="{{ i.id }}">
+                        <input type="hidden" name="habitDate" value="{{ selected_date }}">
+                        <button type="submit" class="task__button">{{ i.description }}</button>                        
+                    </form>
                 </p>
-            </div>     
-        {% endfor %}
-    </div>
-    
+            </div>
+        {% elif i.completions and i.date_created.date() == selected_date.date() %}            
+            <!-- Renderiza div com task concluída -->
+            <div class="task_completed ">
+                <p class="habit__description">
+                    {{ i.description }}
+                </p>
+                <svg class="task__icon" width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12ZM18.4158 9.70405C18.8055 9.31268 18.8041 8.67952 18.4127 8.28984L17.7041 7.58426C17.3127 7.19458 16.6796 7.19594 16.2899 7.58731L10.5183 13.3838L7.19723 10.1089C6.80398 9.72117 6.17083 9.7256 5.78305 10.1189L5.08092 10.8309C4.69314 11.2241 4.69758 11.8573 5.09083 12.2451L9.82912 16.9174C10.221 17.3039 10.8515 17.301 11.2399 16.911L18.4158 9.70405Z" fill="#000000"/>
+                    </svg>
+            </div>
+        {% elif i.date_created.date() < selected_date.date() %}
+            <!-- Renderiza botão desativado -->
+            <div class="task_deactivated">
+                <p class="habit__description">
+                    <form method="POST" class="task__form" action="{{ url_for('complete') }}">
+                        <input type="hidden" name="habitId" value="{{ i.id }}">
+                        <input type="hidden" name="habitDate" value="{{ selected_date.strftime('%Y-%m-%dT%H:%M:%S') }}">                        
+                        <button type="submit" class="button__deactivated" disabled>{{ i.description }}</button>                        
+                    </form>
+                </p>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
 {% endblock %}
