@@ -1,0 +1,11 @@
+API google calendar:
+
+https://developers.google.com/calendar/api/guides/overview?hl=pt-br
+
+
+ideia de função:
+- atribuir a data de hj a uma variável "hj"
+- comparar com a data que a task foi completada e armazenada na base de dados
+- se a data que a task foi completada é anterior a "hj", remover seu registro da db Completions ou mover para uma outra tabela que só salva o histórico e que não interage com esse template.
+- automatizar a criação de uma task clone na db Habits (https://docs.celeryq.dev/en/stable/getting-started/introduction.html)
+- renderizar em index.html 

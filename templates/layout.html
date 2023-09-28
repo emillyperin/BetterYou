@@ -13,7 +13,7 @@
     <title>{{ title }}</title>
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="container page-main d-flex align-center justify-between ">
             <div class="logo">
                 <a href="{{ url_for('index') }}">
@@ -44,32 +44,36 @@
     <main class="main">
         <div class="page-main margin">
             <div class="new-habit">
+                <!-- Verifica se não existe /add na url, caso TRUE renderiza um link -->
                 {% if "add" not in request.endpoint %}
                     <a href="{{ url_for('add_habit') }}" class="add_link">+ Adicionar novo Hábito </a>
                 {% endif %}
             </div>
+
+            <!-- ALTEREI O LUGAR DESSA SECTION SÓ PQ EU PROGRAMO EM MEIA TELA E FACILITA KKKK PODE ESTILIZAR O APP INTEIRO COMO DESEJAR BAGUNCEI OS ESTILOS FOI MAL-->
+
+            <section class="dates">
+                <!-- Faz loop sobre o return da função e cria uma lista série de links (dias) em torno da selected_date  -->
+                {% for date in date_range(selected_date) %}
+                    <!-- importante: ***alterar o valor DA CLASSE CONDICIONAL quando mudar o tamanho da lista na função*** -->
+                    <!-- default: 5  -->
+                    <a class="dates__link {{ 'dates__link--current' if loop.index0 == 5 else '' }}" href="{{ url_for('index', date=date)}}">
+                        <time class="date" datetime="{{ date }}">
+                            <span>{{ date.strftime("%a") }}</span>
+                            <span>{{ date.strftime("%d") }}</span>
+                        </time>
+                    </a>
+                {% endfor %}
+            </section>     
+
+
             <div class="d-flex margin justify-between">
                 <section class="w-50 border-custom">
                     <div>
                         {% block main_content %}
                         {% endblock %}
                     </div>
-                </section>
-                <section class="w-50 border-custom">
-                    <div>
-                        <div class="dates">
-                            {% for date in date_range(selected_date) %}
-                                <a class="dates__link {{ 'dates__link--current' if loop.index0 == 3 else '' }}" href="{{ url_for('index', date=date)}}">
-                                    <time class="date" datetime="{{ date }}">
-                                        <span>{{ date.strftime("%a") }}</span>
-                                        <span>{{ date.strftime("%d") }}</span>
-                                    </time>
-                                </a>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </section>
-                
+                </section>                          
             </div>
         </div>
     </main>

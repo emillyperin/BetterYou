@@ -11,7 +11,7 @@
 /*=== Header ===*/
 header {
     background-color: var(--primary-color);
-    box-shadow: 0 3px 4px #2932414d;
+    box-shadow: 0 3px 4px #2932414d;    
 }
 
 
@@ -120,5 +120,105 @@ form.form{
 .form_button:hover {
     opacity: 0.8;
 }
+
+/*=== Estilos Provisórios ===*/
+
+.dates {
+    display:flex;
+    justify-content: space-around;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    margin-top: 1rem; 
+    
+}
+
+.dates__link {
+    color: inherit;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+}
+
+.dates__link--current {
+    background: #D1E0EE;
+}
+
+.dates__link:hover {
+    background-color: rgb(233, 236, 239);    
+}
+
+.date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.task_completed {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+}
+
+.task__icon {
+    width: 1em;
+    height: 1em;
+}
+
+
+.task_incompleted {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+    padding: 0;
+}
+
+.task_incompleted:hover {
+    background-color: var(--primary-color)
+}
+
+
+
+.task__form {
+    width:100%;
+}
+
+.button__deactivated{
+    display: block;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: inherit;
+    text-align: left;
+    border: 1px solid var(--soft-gray);
+    background-color: unset;    
+}
+
+.task__button {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: inherit;
+    text-align: left;
+    border: none;
+    background-color: unset;
+    cursor: pointer;
+}
+
+
+
 
 /*=== Calendar ===*/
