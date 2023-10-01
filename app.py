@@ -71,7 +71,7 @@ class Completions(db.Model):
 def add_calc_date_range():
     # Cria uma lista dinâmica de datas a partir do dia START (selected_date). A lista vai de X,X dias antes/depois.
     def date_range(start: datetime.date):
-        dates = [start + datetime.timedelta(days=diff) for diff in range(-5, 6)]
+        dates = [start + datetime.timedelta(days=diff) for diff in range(-10, 25)]
         return dates
 
     return {"date_range": date_range}
