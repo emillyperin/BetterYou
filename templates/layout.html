@@ -64,7 +64,7 @@
                         {% for date in date_range(selected_date) %}
                         <!-- importante: ***alterar o valor DA CLASSE CONDICIONAL quando mudar o tamanho da lista na função*** -->
                         <!-- default: 5  -->
-                        <a class="dates__link {{ 'dates__link--current' if loop.index0 == 5 else '' }} border-custom"
+                        <a class="dates__link {{ 'dates__link--current' if loop.index0 == 10 else '' }} border-custom"
                             href="{{ url_for('index', date=date)}}">
                             <time class="date" datetime="{{ date }}">
                                 <span>{{ date.strftime("%a") }}</span>
